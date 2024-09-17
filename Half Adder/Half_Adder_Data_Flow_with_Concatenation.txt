@@ -1,0 +1,7 @@
+module half_adder (
+  input a,b,
+  output sum,carry);
+  
+  // use concatenation and add operator
+  assign {carry,sum} = a+b;
+endmodule

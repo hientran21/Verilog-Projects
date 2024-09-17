@@ -1,0 +1,10 @@
+module half_adder (
+  input a,b,
+  output reg sum,carry);
+  
+  // behavioral modeling
+  always @(a or b) begin
+    sum = a ^ b;  // XOR operation for sum
+    carry = a & b;  // AND operation for carry
+  end
+endmodule

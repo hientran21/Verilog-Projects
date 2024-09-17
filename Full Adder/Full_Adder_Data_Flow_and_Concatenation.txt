@@ -1,0 +1,8 @@
+module full_adder (
+  input a,b,cin,
+  output sum,cout);
+  
+  // data flow modeling modeling with concatenation
+  assign {cout,sum} = a + b + cin; 
+ 
+endmodule
