@@ -1,0 +1,35 @@
+module NOR_gate_gate_level (
+   input a,b,
+   output y);
+   
+  wire yd;
+  or (yd,a,b);
+  not (y,yd);
+
+endmodule
+
+module NOR_gate_gate_level_tb ();
+  
+  reg a,b;
+  wire y;
+  
+  NOR_gate_gate_level NOR_ins (.a(a),
+                  .b(b),
+                  .y(y)
+  			     );
+  
+  initial begin
+    repeat (10) begin
+      a = $random; b = $random;
+      #100;
+      a = 0; b = 0;
+    end
+  end
+      
+  initial begin
+    $monitor ("[%0tns] a = %0b, b = %0b, y = %0b",$time,a,b,y);
+    $dumpfile ("dump.vcd");
+    $dumpvars(1);
+  end
+  
+endmodule
