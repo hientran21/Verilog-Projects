@@ -1,0 +1,8 @@
+// dataflow modeling with concatenation
+module full_substractor (
+  input a,b,bin,
+  output diff,bout); // diff is difference
+
+  assign {bout,diff} = a - b - bin;
+  
+endmodule

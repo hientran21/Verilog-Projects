@@ -1,0 +1,11 @@
+// gate level modeling
+module half_substractor (
+  input a,b,
+  output diff, borrow); // diff is difference
+
+  wire ad; 
+  xor (diff,a,b);
+  not (ad,a);
+  and (borrow,ad,b);
+  
+endmodule

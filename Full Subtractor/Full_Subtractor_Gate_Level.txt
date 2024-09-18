@@ -1,0 +1,16 @@
+// gate level modeling
+module full_substractor (
+  input a,b,bin,
+  output diff,bout); // diff is difference
+  
+  wire ad,x,y,z;
+  
+  xor (diff,a,b,bin);
+  
+  not  (ad,a);
+  and  (x,ad,b);
+  xnor (y,a,b);
+  and  (z,y,bin);
+  or   (bout,x,z);
+  
+endmodule

@@ -1,0 +1,11 @@
+// behavioral modeling
+module half_substractor (
+  input a,b,
+  output reg diff, borrow); // diff is difference
+
+  always @(a,b) begin
+    diff = a^b;
+    borrow = ~a&b; 
+  end
+  
+endmodule

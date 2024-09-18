@@ -1,0 +1,20 @@
+module half_substractor_tb();
+  
+  reg a,b;
+  wire diff,borrow;
+  
+  half_substractor hs (.a(a), .b(b), .diff(diff), .borrow(borrow));
+  
+  initial begin // test case for full substractor, examine for a,b,bin with different values
+    for (int i = 0; i < 4; i++) begin 
+      {a,b} = i;
+      #100;
+    end
+  end
+  
+  initial begin // monitor values and dump waveform
+    $monitor ("[%0tns] a = %0b, b = %0b, borrow = %0b, diff = %0b",$time,a,b,borrow,diff);
+    $dumpfile ("dump.vcd");
+    $dumpvars(1);
+  end
+endmodule

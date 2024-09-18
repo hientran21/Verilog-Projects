@@ -1,0 +1,8 @@
+// dataflow with concatenation
+module half_substractor (
+  input a,b,
+  output diff, borrow); // diff is difference
+
+  assign {borrow,diff} = a - b;
+  
+endmodule

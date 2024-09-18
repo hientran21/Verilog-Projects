@@ -1,0 +1,9 @@
+// dataflow modeling
+module full_substractor (
+  input a,b,bin,
+  output diff,bout); // diff is difference
+
+  assign bout = (~a & b) | (~(a ^ b) & bin);
+  assign diff = a ^ b ^ bin;
+  
+endmodule

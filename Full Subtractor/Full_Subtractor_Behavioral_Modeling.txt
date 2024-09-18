@@ -1,0 +1,12 @@
+// Behavioral Modeling
+module full_substractor (
+  input a,b,bin,
+  output reg diff,bout); // diff is difference
+
+  always @(a or b or bin) begin
+    //{bout,diff} = a - b - bin;
+    bout = (~a & b) | (~(a ^ b) & bin);
+    diff = a ^ b ^ bin;
+  end
+  
+endmodule
