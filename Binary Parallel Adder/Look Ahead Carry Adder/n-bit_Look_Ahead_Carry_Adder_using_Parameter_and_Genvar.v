@@ -47,3 +47,30 @@ module carry_lookahead_adder
   endgenerate
    
 endmodule // carry_lookahead_adder
+
+module n_bit_look_ahead_carry_adder_tb();
+  reg  [WIDTH-1:0] a,b;
+  wire [WIDTH:0] answer;
+  parameter WIDTH = 4;
+  
+  n_bit_look_ahead_carry_adder #(.WIDTH(WIDTH)) dut (
+    .a(a),
+    .b(b),
+    .answer(answer)
+    );
+
+  initial begin // test case
+    repeat (10) begin
+      a = $random; b = $random; 
+      #1;
+    end
+  end
+  
+  initial begin // display result
+    $monitor ("[%0tns] a = %0d, b = %0d, answer = %0d",$time,a,b,answer);
+    $dumpfile("dump.vcd");
+    $dumpvars(1);
+  end
+  
+endmodule
+
